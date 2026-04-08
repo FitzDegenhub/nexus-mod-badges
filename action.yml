@@ -1,0 +1,48 @@
+name: 'Nexus Mod Badges'
+description: 'Create shields.io badges with live download counts, unique downloads, and endorsements from Nexus Mods'
+author: 'FitzDegenhub'
+
+branding:
+  icon: 'download'
+  color: 'orange'
+
+inputs:
+  nexus_api_key:
+    description: 'Your Nexus Mods personal API key'
+    required: true
+  game:
+    description: 'Game domain name (e.g. "crimsondesert", "skyrimspecialedition")'
+    required: true
+  mod_id:
+    description: 'Nexus Mods mod ID'
+    required: true
+  gist_id:
+    description: 'GitHub Gist ID to store badge JSON'
+    required: true
+  gist_token:
+    description: 'GitHub PAT with gist scope'
+    required: true
+  type:
+    description: 'Stat type: downloads, unique_downloads, or endorsements'
+    required: false
+    default: 'downloads'
+  color:
+    description: 'Badge color (hex without #, or named color)'
+    required: false
+    default: 'DA8E35'
+  label:
+    description: 'Badge label text (auto-derived from type if omitted)'
+    required: false
+  filename:
+    description: 'Gist filename (defaults to {game}-{mod_id}-{type}.json)'
+    required: false
+
+outputs:
+  badge_url:
+    description: 'shields.io endpoint URL for the badge'
+  value:
+    description: 'Raw numeric stat value'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

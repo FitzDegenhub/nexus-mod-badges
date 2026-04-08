@@ -1,0 +1,17 @@
+{
+  "name": "nexus-mod-badges",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GitHub Action to create shields.io badges from Nexus Mods stats",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "ncc build src/index.js -o dist --license licenses.txt"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.1"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.1"
+  },
+  "license": "MIT"
+}
