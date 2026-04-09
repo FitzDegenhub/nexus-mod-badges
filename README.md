@@ -183,7 +183,7 @@ This file tells GitHub to run the Action on a daily schedule.
 
 1. In your repository, create the folder path `.github/workflows/` (if it doesn't exist)
 2. Create a new file called `nexus-badges.yml` inside that folder
-3. Paste the following, **replacing the placeholder values** with your own:
+3. Paste the following — you need to **replace 3 placeholder values** (explained below):
 
 ```yaml
 name: Update Nexus Badges
@@ -199,13 +199,23 @@ jobs:
       - uses: FitzDegenhub/nexus-mod-badges@v1
         with:
           nexus_api_key: ${{ secrets.NEXUS_API_KEY }}
-          game: YOUR_GAME_DOMAIN        # e.g. crimsondesert
-          mod_id: YOUR_MOD_ID           # e.g. 438
-          gist_id: YOUR_GIST_ID         # from Step 2
+          game: YOUR_GAME_DOMAIN
+          mod_id: YOUR_MOD_ID
+          gist_id: YOUR_GIST_ID
           gist_token: ${{ secrets.GIST_TOKEN }}
 ```
 
-4. Commit the file to your repo
+4. **Replace these 3 values** with your own from your notepad file:
+
+| Placeholder | Replace with | Where you got it |
+|-------------|-------------|------------------|
+| `YOUR_GAME_DOMAIN` | Your game's URL slug (e.g. `crimsondesert`, `skyrimspecialedition`) | Step 5 — from your Nexus Mods URL |
+| `YOUR_MOD_ID` | Your mod's ID number (e.g. `438`) | Step 5 — the number at the end of your mod URL |
+| `YOUR_GIST_ID` | The long hash from your Gist URL (e.g. `8252b6a9bc70cedffb883127f64c8ee6`) | Step 2 — from your Gist URL |
+
+> **Do NOT change** `${{ secrets.NEXUS_API_KEY }}` or `${{ secrets.GIST_TOKEN }}` — leave them exactly as they are. GitHub automatically fills these in from the secrets you added in Step 4.
+
+5. Commit the file to your repo
 
 **Optional inputs** you can add to customize your badge:
 
