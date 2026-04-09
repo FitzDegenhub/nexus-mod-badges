@@ -37,12 +37,12 @@ Real badge powered by this Action:
 
 **Works with any game on Nexus Mods.** Here's what your badges would look like:
 
-| Game | Mod | What you'd see |
-|------|-----|----------------|
-| Skyrim SE | [SkyUI](https://www.nexusmods.com/skyrimspecialedition/mods/12604) | ![Downloads](https://img.shields.io/badge/Nexus_Downloads-42.1M-DA8E35?style=flat) |
-| Elden Ring | [Seamless Co-op](https://www.nexusmods.com/eldenring/mods/510) | ![Downloads](https://img.shields.io/badge/Nexus_Downloads-18.7M-DA8E35?style=flat) |
-| Baldur's Gate 3 | [Script Extender](https://www.nexusmods.com/baldursgate3/mods/2172) | ![Downloads](https://img.shields.io/badge/Nexus_Downloads-9.4M-DA8E35?style=flat) |
-| Elden Ring | [ER Reforged](https://www.nexusmods.com/eldenring/mods/541) | ![Downloads](https://img.shields.io/badge/Nexus_Downloads-2.1M-DA8E35?style=flat) |
+| Game | Mod | Type | What you'd see |
+|------|-----|------|----------------|
+| Skyrim SE | [SkyUI](https://www.nexusmods.com/skyrimspecialedition/mods/12604) | `downloads` | ![Downloads](https://img.shields.io/badge/Nexus_Downloads-42.1M-DA8E35?style=flat) |
+| Elden Ring | [Seamless Co-op](https://www.nexusmods.com/eldenring/mods/510) | `unique_downloads` | ![Unique](https://img.shields.io/badge/Nexus_Unique_Downloads-12.3M-DA8E35?style=flat) |
+| Baldur's Gate 3 | [Script Extender](https://www.nexusmods.com/baldursgate3/mods/2172) | `endorsements` | ![Endorsements](https://img.shields.io/badge/Nexus_Endorsements-48.2k-DA8E35?style=flat) |
+| Elden Ring | [ER Reforged](https://www.nexusmods.com/eldenring/mods/541) | `downloads` | ![Downloads](https://img.shields.io/badge/Nexus_Downloads-2.1M-DA8E35?style=flat) |
 
 > These are static previews. With the Action, your badge updates automatically every day with real data. Just plug in your `game` domain and `mod_id`.
 
