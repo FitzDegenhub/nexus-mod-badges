@@ -44,6 +44,17 @@ Real badge powered by this Action:
 | Baldur's Gate 3 | [Script Extender](https://www.nexusmods.com/baldursgate3/mods/2172) | `endorsements` | ![Endorsements](https://img.shields.io/badge/Nexus_Endorsements-48.2k-DA8E35?style=flat) |
 | Elden Ring | [ER Reforged](https://www.nexusmods.com/eldenring/mods/541) | `downloads` | ![Downloads](https://img.shields.io/badge/Nexus_Downloads-2.1M-DA8E35?style=flat) |
 
+### Logo Options
+
+Control how the badge looks with the `logo` input:
+
+| Mode | Setting | Preview |
+|------|---------|---------|
+| Icon + Text | `logo: both` (default) | ![both](https://img.shields.io/badge/Nexus_Downloads-1.1k-DA8E35?style=flat) |
+| Icon only | `logo: icon` | ![icon](https://img.shields.io/badge/-1.1k-DA8E35?style=flat) |
+| Text only | `logo: text` | ![text](https://img.shields.io/badge/Nexus_Downloads-1.1k-DA8E35?style=flat) |
+| None | `logo: none` | ![none](https://img.shields.io/badge/-1.1k-DA8E35?style=flat) |
+
 > These are static previews. With the Action, your badge updates automatically every day with real data. Just plug in your `game` domain and `mod_id`.
 
 ---
@@ -247,6 +258,7 @@ That's it! The badge auto-updates every day. You never need to touch it again (u
 | `type` | No | `downloads` | `downloads`, `unique_downloads`, or `endorsements` |
 | `color` | No | `DA8E35` | Badge color (hex without `#`, or named color) |
 | `label` | No | Auto | Badge label text (derived from type if omitted) |
+| `logo` | No | `both` | Logo display: `both`, `icon`, `text`, or `none` |
 | `filename` | No | Auto | Gist filename (defaults to `{game}-{mod_id}-{type}.json`) |
 
 ## Outputs

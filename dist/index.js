@@ -27592,11 +27592,18 @@ async function run() {
     const gistToken = core.getInput('gist_token', { required: true });
     const type = core.getInput('type') || 'downloads';
     const color = core.getInput('color') || 'DA8E35';
+    const logo = core.getInput('logo') || 'both';
     const label = core.getInput('label') || LABEL_MAP[type];
     const filename = core.getInput('filename') || `${game}-${modId}-${type}.json`;
 
     if (!FIELD_MAP[type]) {
       core.setFailed(`Invalid type "${type}". Must be one of: downloads, unique_downloads, endorsements`);
+      return;
+    }
+
+    const validLogos = ['both', 'icon', 'text', 'none'];
+    if (!validLogos.includes(logo)) {
+      core.setFailed(`Invalid logo "${logo}". Must be one of: ${validLogos.join(', ')}`);
       return;
     }
 
@@ -27636,13 +27643,19 @@ async function run() {
     core.info(`${type}: ${value} (${formatNumber(value)})`);
 
     // Build shields.io endpoint JSON
+    const showIcon = logo === 'both' || logo === 'icon';
+    const showText = logo === 'both' || logo === 'text';
+
     const badge = {
       schemaVersion: 1,
-      label,
+      label: showText ? label : '',
       message: formatNumber(value),
       color,
-      logoSvg: NEXUS_LOGO_SVG,
     };
+
+    if (showIcon) {
+      badge.logoSvg = NEXUS_LOGO_SVG;
+    }
 
     // Write to GitHub Gist
     core.info(`Updating gist ${gistId} -> ${filename}`);

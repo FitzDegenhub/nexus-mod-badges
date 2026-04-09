@@ -33,6 +33,10 @@ inputs:
   label:
     description: 'Badge label text (auto-derived from type if omitted)'
     required: false
+  logo:
+    description: 'Logo display: both (icon + text), icon (icon only), text (text only), none'
+    required: false
+    default: 'both'
   filename:
     description: 'Gist filename (defaults to {game}-{mod_id}-{type}.json)'
     required: false
