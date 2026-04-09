@@ -17,6 +17,27 @@ shields.io has no built-in support for nexusmods.com — this Action bridges the
 
 ---
 
+## Demo
+
+Real badge powered by this Action:
+
+| Mod | Badge |
+|-----|-------|
+| [Ultimate Camera Mod](https://www.nexusmods.com/crimsondesert/mods/438) — Crimson Desert | ![Nexus Downloads](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FitzDegenhub/8252b6a9bc70cedffb883127f64c8ee6/raw/crimsondesert-438-downloads.json&style=flat&label=) |
+
+**Works with any game on Nexus Mods.** Here's what badges could look like for popular mods:
+
+| Game | Mod | Example Badge |
+|------|-----|---------------|
+| Skyrim SE | [SkyUI](https://www.nexusmods.com/skyrimspecialedition/mods/12604) | `skyrimspecialedition` · mod `12604` |
+| Elden Ring | [Seamless Co-op](https://www.nexusmods.com/eldenring/mods/510) | `eldenring` · mod `510` |
+| Baldur's Gate 3 | [Script Extender](https://www.nexusmods.com/baldursgate3/mods/2172) | `baldursgate3` · mod `2172` |
+| Crimson Desert | [Elden Ring Reforged](https://www.nexusmods.com/eldenring/mods/541) | `eldenring` · mod `541` |
+
+> Just plug your `game` domain and `mod_id` into the workflow and you'll have a live badge in minutes.
+
+---
+
 ## How It Works
 
 ```
