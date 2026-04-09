@@ -35,16 +35,16 @@ Real badge powered by this Action:
 
 > **Note:** Nexus Mods does not expose view counts through their API. These three stats are everything available.
 
-**Works with any game on Nexus Mods.** Here's what badges could look like for popular mods:
+**Works with any game on Nexus Mods.** Here's what your badges would look like:
 
-| Game | Mod | Example Badge |
-|------|-----|---------------|
-| Skyrim SE | [SkyUI](https://www.nexusmods.com/skyrimspecialedition/mods/12604) | `skyrimspecialedition` · mod `12604` |
-| Elden Ring | [Seamless Co-op](https://www.nexusmods.com/eldenring/mods/510) | `eldenring` · mod `510` |
-| Baldur's Gate 3 | [Script Extender](https://www.nexusmods.com/baldursgate3/mods/2172) | `baldursgate3` · mod `2172` |
-| Crimson Desert | [Elden Ring Reforged](https://www.nexusmods.com/eldenring/mods/541) | `eldenring` · mod `541` |
+| Game | Mod | What you'd see |
+|------|-----|----------------|
+| Skyrim SE | [SkyUI](https://www.nexusmods.com/skyrimspecialedition/mods/12604) | ![Downloads](https://img.shields.io/badge/Nexus_Downloads-42.1M-DA8E35?style=flat) |
+| Elden Ring | [Seamless Co-op](https://www.nexusmods.com/eldenring/mods/510) | ![Downloads](https://img.shields.io/badge/Nexus_Downloads-18.7M-DA8E35?style=flat) |
+| Baldur's Gate 3 | [Script Extender](https://www.nexusmods.com/baldursgate3/mods/2172) | ![Downloads](https://img.shields.io/badge/Nexus_Downloads-9.4M-DA8E35?style=flat) |
+| Elden Ring | [ER Reforged](https://www.nexusmods.com/eldenring/mods/541) | ![Downloads](https://img.shields.io/badge/Nexus_Downloads-2.1M-DA8E35?style=flat) |
 
-> Just plug your `game` domain and `mod_id` into the workflow and you'll have a live badge in minutes.
+> These are static previews. With the Action, your badge updates automatically every day with real data. Just plug in your `game` domain and `mod_id`.
 
 ---
 
