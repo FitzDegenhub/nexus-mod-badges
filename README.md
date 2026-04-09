@@ -4,7 +4,7 @@
 
 **Live Nexus Mods stats on your GitHub profile**
 
-![shields.io](https://img.shields.io/badge/shields.io-endpoint-DA8E35?style=flat&logo=nexusmods&logoColor=white)
+![shields.io](https://img.shields.io/badge/shields.io-endpoint-DA8E35?style=flat)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-automated-2088FF?style=flat&logo=githubactions&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
@@ -55,7 +55,7 @@ Control how the badge looks with the `logo` input:
 | Text only | `logo: text` | ![text](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FitzDegenhub/8252b6a9bc70cedffb883127f64c8ee6/raw/demo-text.json&style=flat&cacheSeconds=3600) |
 | None | `logo: none` | ![none](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FitzDegenhub/8252b6a9bc70cedffb883127f64c8ee6/raw/demo-none.json&style=flat&cacheSeconds=3600) |
 
-> These are static previews. With the Action, your badge updates automatically every day with real data. Just plug in your `game` domain and `mod_id`.
+> These are live previews powered by this Action.
 
 ---
 
@@ -74,6 +74,8 @@ The Action runs on a schedule via GitHub Actions, fetches your mod's stats from 
 ## Setup Guide
 
 > This guide assumes you've never done any of this before. Follow each step exactly.
+>
+> **Before you start**, open a notepad/text file to temporarily save keys and IDs as you go. You'll need them in later steps.
 
 <details>
 <summary><strong>Step 1: Get your Nexus Mods API Key</strong></summary>
@@ -86,7 +88,7 @@ Your API key lets this Action read your mod's public stats (downloads, endorseme
 2. Click your **profile picture** (top right) → **Site preferences**
 3. Click the **API Keys** tab
 4. Scroll down to **Personal API Key**
-5. Copy the key and **paste it into a temporary notepad/text file** — you'll need it in Step 4
+5. Copy the key and **paste it into your notepad file** — you'll need it in Step 4
 
 </details>
 
@@ -168,6 +170,8 @@ https://www.nexusmods.com/crimsondesert/mods/438
 - **Game domain** = the part after `nexusmods.com/` (e.g. `crimsondesert`, `skyrimspecialedition`, `baldursgate3`)
 - **Mod ID** = the number at the end
 
+**Paste both into your notepad file** — you'll need them in Steps 6 and 8.
+
 </details>
 
 <details>
@@ -203,6 +207,31 @@ jobs:
 
 4. Commit the file to your repo
 
+**Optional inputs** you can add to customize your badge:
+
+| Input | What it does | Example |
+|-------|-------------|---------|
+| `type` | Change the stat shown | `type: endorsements` |
+| `logo` | Control the logo display | `logo: icon` (icon only, no text) |
+| `color` | Change the badge color | `color: blue` |
+| `label` | Custom label text | `label: "My Mod Downloads"` |
+
+For example, to show endorsements with icon only:
+
+```yaml
+      - uses: FitzDegenhub/nexus-mod-badges@v1
+        with:
+          nexus_api_key: ${{ secrets.NEXUS_API_KEY }}
+          game: crimsondesert
+          mod_id: 438
+          gist_id: YOUR_GIST_ID
+          gist_token: ${{ secrets.GIST_TOKEN }}
+          type: endorsements
+          logo: icon
+```
+
+You can add **multiple steps** in the same workflow to create badges for different stats or mods — they all write to the same Gist. See the [Examples](#examples) section below.
+
 </details>
 
 <details>
@@ -216,6 +245,8 @@ jobs:
 4. Click **Run workflow** → **Run workflow**
 5. Wait a few seconds for it to complete (you'll see a green checkmark)
 
+If it fails, check the error message and refer to the [Troubleshooting](#troubleshooting) section.
+
 </details>
 
 <details>
@@ -225,16 +256,23 @@ jobs:
 
 Now add the badge image to your `README.md`. Replace `YOUR_USERNAME` and `YOUR_GIST_ID` with your values.
 
-The filename at the end follows the pattern `{game}-{mod_id}-{type}.json`:
+The filename at the end follows the pattern `{game}-{mod_id}-{type}.json`. If you didn't set a `type`, it defaults to `downloads`.
 
 ```markdown
-![Nexus Downloads](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/YOUR_USERNAME/YOUR_GIST_ID/raw/YOUR_GAME-YOUR_MOD_ID-downloads.json&style=flat&logo=nexusmods&logoColor=white)
+![Nexus Downloads](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/YOUR_USERNAME/YOUR_GIST_ID/raw/YOUR_GAME-YOUR_MOD_ID-downloads.json&style=flat)
 ```
 
 **Example** (for a Crimson Desert mod with ID 438):
 ```markdown
-![Nexus Downloads](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FitzDegenhub/8252b6a9bc70cedffb883127f64c8ee6/raw/crimsondesert-438-downloads.json&style=flat&logo=nexusmods&logoColor=white)
+![Nexus Downloads](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FitzDegenhub/8252b6a9bc70cedffb883127f64c8ee6/raw/crimsondesert-438-downloads.json&style=flat)
 ```
+
+If you used a different `type` (e.g. `endorsements`), change the filename accordingly:
+```markdown
+![Nexus Endorsements](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/YOUR_USERNAME/YOUR_GIST_ID/raw/YOUR_GAME-YOUR_MOD_ID-endorsements.json&style=flat)
+```
+
+If you set a custom `filename` in your workflow, use that exact filename in the URL instead.
 
 > **Tip:** The Action logs the exact badge URL after each run. Go to the Actions tab → click the latest run → expand the step output to see it.
 
@@ -243,6 +281,8 @@ The filename at the end follows the pattern `{game}-{mod_id}-{type}.json`:
 <br>
 
 That's it! The badge auto-updates every day. You never need to touch it again (until your PAT expires — then just regenerate and update the `GIST_TOKEN` secret).
+
+**Delete your notepad file** now — you don't need those keys anymore and they shouldn't be left lying around.
 
 ---
 
@@ -322,11 +362,11 @@ steps:
 
 Then in your README:
 ```markdown
-![Downloads](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/USER/GIST_ID/raw/crimsondesert-438-downloads.json&style=flat&logo=nexusmods&logoColor=white)
-![Endorsements](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/USER/GIST_ID/raw/crimsondesert-438-endorsements.json&style=flat&logo=nexusmods&logoColor=white)
+![Downloads](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/USER/GIST_ID/raw/crimsondesert-438-downloads.json&style=flat)
+![Endorsements](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/USER/GIST_ID/raw/crimsondesert-438-endorsements.json&style=flat)
 ```
 
-### Custom Badge Colors
+### Custom Logo, Color, and Label
 
 ```yaml
 - uses: FitzDegenhub/nexus-mod-badges@v1
@@ -336,8 +376,9 @@ Then in your README:
     mod_id: 438
     gist_id: YOUR_GIST_ID
     gist_token: ${{ secrets.GIST_TOKEN }}
-    color: blue
-    label: "My Mod Downloads"
+    logo: icon           # icon only, no label text
+    color: blue          # change badge color
+    label: "My Mod"      # custom label (only shows if logo is 'both' or 'text')
 ```
 
 ---
@@ -363,6 +404,7 @@ Then in your README:
 | `Gist not found` | Your `gist_id` is wrong. Double-check the ID from Step 2. |
 | `Gist token invalid or missing gist scope` | Your PAT doesn't have Gist permissions. Redo Step 3. |
 | Badge shows "invalid" or "inaccessible" | The workflow hasn't run yet. Go to Actions tab and trigger it manually (Step 7). |
+| Badge shows "resource not found" | Shields.io is caching an old response. Wait ~5 minutes and hard refresh (`Ctrl+Shift+R`). |
 | Badge not updating | Shields.io caches badges for ~5 minutes. Wait and refresh. |
 
 ---
