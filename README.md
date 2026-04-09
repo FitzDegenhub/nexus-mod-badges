@@ -18,7 +18,7 @@ Your API key lets this Action read your mod's public stats (downloads, endorseme
 2. Click your **profile picture** (top right) → **Site preferences**
 3. Click the **API Keys** tab
 4. Scroll down to **Personal API Key**
-5. Copy the key — you'll need it in Step 4
+5. Copy the key and **paste it into a temporary notepad/text file** — you'll need it in Step 4
 
 ### Step 2: Create a GitHub Gist
 
@@ -32,7 +32,7 @@ A Gist is a small file hosted on GitHub. This Action writes your mod stats to a 
    ```
    https://gist.github.com/YourUsername/abc123def456789...
    ```
-6. Copy the **long string of letters and numbers after your username** — that's your **Gist ID**. Save it somewhere, you'll need it in Steps 4 and 6.
+6. Copy the **long string of letters and numbers after your username** — that's your **Gist ID**. **Paste it into your notepad file** — you'll need it in Steps 6 and 8.
 
 ### Step 3: Create a GitHub Personal Access Token (PAT)
 
@@ -45,7 +45,7 @@ A PAT is a password-like token that gives the Action permission to update your G
 5. Under **Account permissions**, click **+ Add permissions**
 6. Find **Gists** and set it to **Read and write**
 7. Click **Generate token**
-8. **Copy the token immediately** — you won't be able to see it again. Save it somewhere safe temporarily.
+8. **Copy the token immediately** and **paste it into your notepad file** — you won't be able to see it again
 
 > **Important:** Never paste tokens into chat, code, or files. They go into GitHub Secrets (next step) where they're encrypted.
 
