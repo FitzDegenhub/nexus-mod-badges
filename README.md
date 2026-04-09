@@ -1,16 +1,42 @@
+<div align="center">
+
 # Nexus Mod Badges
 
-GitHub Action that creates live [shields.io](https://shields.io) badges from your [Nexus Mods](https://www.nexusmods.com) stats. Show download counts, unique downloads, and endorsements on your GitHub profile or repo README.
+**Live Nexus Mods stats on your GitHub profile**
+
+![shields.io](https://img.shields.io/badge/shields.io-endpoint-DA8E35?style=flat&logo=nexusmods&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-automated-2088FF?style=flat&logo=githubactions&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat)
+
+GitHub Action that creates live [shields.io](https://shields.io) badges from your [Nexus Mods](https://www.nexusmods.com) stats.
+Show download counts, unique downloads, and endorsements on your GitHub profile or repo README.
 
 shields.io has no built-in support for nexusmods.com — this Action bridges the gap.
 
-**How it works:** Nexus Mods API → this Action (runs daily via GitHub Actions) → GitHub Gist → shields.io reads the Gist → badge appears in your README
+</div>
+
+---
+
+## How It Works
+
+```
+Nexus Mods API  →  This Action (daily)  →  GitHub Gist  →  shields.io  →  Your README
+```
+
+The Action runs on a schedule via GitHub Actions, fetches your mod's stats from the Nexus Mods API, saves them to a GitHub Gist, and shields.io reads from that Gist to display a live badge.
+
+**Cost:** Completely free. GitHub Actions, Gists, shields.io, and the Nexus Mods API are all free.
+
+---
 
 ## Setup Guide
 
-This guide assumes you've never done any of this before. Follow each step exactly.
+> This guide assumes you've never done any of this before. Follow each step exactly.
 
-### Step 1: Get your Nexus Mods API Key
+<details>
+<summary><strong>Step 1: Get your Nexus Mods API Key</strong></summary>
+
+<br>
 
 Your API key lets this Action read your mod's public stats (downloads, endorsements, etc). It does **not** give access to modify anything.
 
@@ -20,7 +46,12 @@ Your API key lets this Action read your mod's public stats (downloads, endorseme
 4. Scroll down to **Personal API Key**
 5. Copy the key and **paste it into a temporary notepad/text file** — you'll need it in Step 4
 
-### Step 2: Create a GitHub Gist
+</details>
+
+<details>
+<summary><strong>Step 2: Create a GitHub Gist</strong></summary>
+
+<br>
 
 A Gist is a small file hosted on GitHub. This Action writes your mod stats to a Gist, and shields.io reads from it to display your badge.
 
@@ -34,7 +65,12 @@ A Gist is a small file hosted on GitHub. This Action writes your mod stats to a 
    ```
 6. Copy the **long string of letters and numbers after your username** — that's your **Gist ID**. **Paste it into your notepad file** — you'll need it in Steps 6 and 8.
 
-### Step 3: Create a GitHub Personal Access Token (PAT)
+</details>
+
+<details>
+<summary><strong>Step 3: Create a GitHub Personal Access Token (PAT)</strong></summary>
+
+<br>
 
 A PAT is a password-like token that gives the Action permission to update your Gist.
 
@@ -49,7 +85,12 @@ A PAT is a password-like token that gives the Action permission to update your G
 
 > **Important:** Never paste tokens into chat, code, or files. They go into GitHub Secrets (next step) where they're encrypted.
 
-### Step 4: Add Secrets to Your Repository
+</details>
+
+<details>
+<summary><strong>Step 4: Add Secrets to Your Repository</strong></summary>
+
+<br>
 
 Secrets are encrypted values that your workflow can use without exposing them publicly.
 
@@ -67,7 +108,12 @@ Secrets are encrypted values that your workflow can use without exposing them pu
 
 You should now see both secrets listed.
 
-### Step 5: Find Your Game Domain and Mod ID
+</details>
+
+<details>
+<summary><strong>Step 5: Find Your Game Domain and Mod ID</strong></summary>
+
+<br>
 
 You need two values from your Nexus Mods page. Look at your mod's URL:
 
@@ -80,13 +126,18 @@ https://www.nexusmods.com/crimsondesert/mods/438
 - **Game domain** = the part after `nexusmods.com/` (e.g. `crimsondesert`, `skyrimspecialedition`, `baldursgate3`)
 - **Mod ID** = the number at the end
 
-### Step 6: Add the Workflow File
+</details>
+
+<details>
+<summary><strong>Step 6: Add the Workflow File</strong></summary>
+
+<br>
 
 This file tells GitHub to run the Action on a daily schedule.
 
 1. In your repository, create the folder path `.github/workflows/` (if it doesn't exist)
 2. Create a new file called `nexus-badges.yml` inside that folder
-3. Paste the following, replacing the placeholder values with your own:
+3. Paste the following, **replacing the placeholder values** with your own:
 
 ```yaml
 name: Update Nexus Badges
@@ -110,7 +161,12 @@ jobs:
 
 4. Commit the file to your repo
 
-### Step 7: Run It for the First Time
+</details>
+
+<details>
+<summary><strong>Step 7: Run It for the First Time</strong></summary>
+
+<br>
 
 1. Go to your repository on GitHub
 2. Click the **Actions** tab
@@ -118,7 +174,12 @@ jobs:
 4. Click **Run workflow** → **Run workflow**
 5. Wait a few seconds for it to complete (you'll see a green checkmark)
 
-### Step 8: Add the Badge to Your README
+</details>
+
+<details>
+<summary><strong>Step 8: Add the Badge to Your README</strong></summary>
+
+<br>
 
 Now add the badge image to your `README.md`. Replace `YOUR_USERNAME` and `YOUR_GIST_ID` with your values.
 
@@ -135,7 +196,11 @@ The filename at the end follows the pattern `{game}-{mod_id}-{type}.json`:
 
 > **Tip:** The Action logs the exact badge URL after each run. Go to the Actions tab → click the latest run → expand the step output to see it.
 
-That's it! The badge will auto-update every day. You never need to touch it again (until your PAT expires — then just regenerate and update the `GIST_TOKEN` secret).
+</details>
+
+<br>
+
+That's it! The badge auto-updates every day. You never need to touch it again (until your PAT expires — then just regenerate and update the `GIST_TOKEN` secret).
 
 ---
 
@@ -159,6 +224,8 @@ That's it! The badge will auto-update every day. You never need to touch it agai
 |--------|-------------|
 | `badge_url` | Full shields.io endpoint URL ready to paste |
 | `value` | Raw numeric stat value |
+
+---
 
 ## Examples
 
@@ -230,6 +297,8 @@ Then in your README:
     label: "My Mod Downloads"
 ```
 
+---
+
 ## Number Formatting
 
 | Raw Value | Displayed |
@@ -238,6 +307,8 @@ Then in your README:
 | 3,500 | `3.5k` |
 | 15,000 | `15k` |
 | 1,200,000 | `1.2M` |
+
+---
 
 ## Troubleshooting
 
@@ -250,6 +321,8 @@ Then in your README:
 | `Gist token invalid or missing gist scope` | Your PAT doesn't have Gist permissions. Redo Step 3. |
 | Badge shows "invalid" or "inaccessible" | The workflow hasn't run yet. Go to Actions tab and trigger it manually (Step 7). |
 | Badge not updating | Shields.io caches badges for ~5 minutes. Wait and refresh. |
+
+---
 
 ## License
 
