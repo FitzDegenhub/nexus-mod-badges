@@ -51,9 +51,9 @@ Control how the badge looks with the `logo` input:
 | Mode | Setting | Preview |
 |------|---------|---------|
 | Icon + Text | `logo: both` (default) | ![both](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FitzDegenhub/8252b6a9bc70cedffb883127f64c8ee6/raw/crimsondesert-438-downloads.json&style=flat) |
-| Icon only | `logo: icon` | ![icon](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FitzDegenhub/8252b6a9bc70cedffb883127f64c8ee6/raw/demo-icon.json&style=flat) |
-| Text only | `logo: text` | ![text](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FitzDegenhub/8252b6a9bc70cedffb883127f64c8ee6/raw/demo-text.json&style=flat) |
-| None | `logo: none` | ![none](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FitzDegenhub/8252b6a9bc70cedffb883127f64c8ee6/raw/demo-none.json&style=flat) |
+| Icon only | `logo: icon` | ![icon](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FitzDegenhub/8252b6a9bc70cedffb883127f64c8ee6/raw/demo-icon.json&style=flat&cacheSeconds=3600) |
+| Text only | `logo: text` | ![text](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FitzDegenhub/8252b6a9bc70cedffb883127f64c8ee6/raw/demo-text.json&style=flat&cacheSeconds=3600) |
+| None | `logo: none` | ![none](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FitzDegenhub/8252b6a9bc70cedffb883127f64c8ee6/raw/demo-none.json&style=flat&cacheSeconds=3600) |
 
 > These are static previews. With the Action, your badge updates automatically every day with real data. Just plug in your `game` domain and `mod_id`.
 
