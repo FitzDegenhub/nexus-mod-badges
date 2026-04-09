@@ -23,7 +23,17 @@ Real badge powered by this Action:
 
 | Mod | Badge |
 |-----|-------|
-| [Ultimate Camera Mod](https://www.nexusmods.com/crimsondesert/mods/438) — Crimson Desert | ![Nexus Downloads](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FitzDegenhub/8252b6a9bc70cedffb883127f64c8ee6/raw/crimsondesert-438-downloads.json&style=flat&label=) |
+| [Ultimate Camera Mod](https://www.nexusmods.com/crimsondesert/mods/438) — Crimson Desert | ![Nexus Downloads](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FitzDegenhub/8252b6a9bc70cedffb883127f64c8ee6/raw/crimsondesert-438-downloads.json&style=flat) |
+
+### Supported Stats
+
+| Type | Description | Example Label |
+|------|-------------|---------------|
+| `downloads` | Total download count (default) | Nexus Downloads |
+| `unique_downloads` | Unique user downloads | Nexus Unique Downloads |
+| `endorsements` | Community endorsement count | Nexus Endorsements |
+
+> **Note:** Nexus Mods does not expose view counts through their API. These three stats are everything available.
 
 **Works with any game on Nexus Mods.** Here's what badges could look like for popular mods:
 
